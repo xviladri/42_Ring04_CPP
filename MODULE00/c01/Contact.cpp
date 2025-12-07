@@ -1,11 +1,14 @@
 #include "Contact.hpp"
 
+//Constructor: inicializa el objecto
 Contact::Contact() {
 }
-
+//Destructor: Limpia cuando el objeto se destruye
 Contact::~Contact() {
 }
-
+/*--------------------------------------------------
+ **SETTERS (Modificadores) - no llevan 'const' pq SI cambian al objeto
+-----------------------------------------------------*/
 void    Contact::setFirstName(std::string firstName) {
     _firstName = firstName;
 }
@@ -25,23 +28,25 @@ void    Contact::setPhoneNumber(std::string phoneNumber) {
 void    Contact::setDarkestSecret(std::string darkestSecret) {
     _darkestSecret = darkestSecret;
 }
-
-std::string Contact::getFirstName() {
+/*----------------------------------------------------
+ **GETTERS (Accesores) - llevan 'const' pq prometemos NO cambiar nada, versión de solo lectura
+ -----------------------------------------------------*/
+std::string Contact::getFirstName() const {
     return _firstName;
 }
 
-std::string Contact::getLastName() {
+std::string Contact::getLastName() const {
     return _lastName;
 }
 
-std::string Contact::getNickname() {
+std::string Contact::getNickname() const {
     return _nickname;
 }
 
-std::string Contact::getPhoneNumber() {
+std::string Contact::getPhoneNumber() const {
     return _phoneNumber;
 }
 
-std::string Contact::getDarkestSecret() {
+std::string Contact::getDarkestSecret() const {
     return _darkestSecret;
 }
