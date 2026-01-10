@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xviladri <xviladri@student.42barcelon      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/05 19:21:38 by xviladri          #+#    #+#             */
+/*   Updated: 2026/01/05 19:21:51 by xviladri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <iomanip>
@@ -31,7 +42,6 @@ void PhoneBook::addContact() {
         std::cout << "All fields must be filled." << std::endl;
         return;
     }
-
     _contacts[_index].setFirstName(firstName);
     _contacts[_index].setLastName(lastName);
     _contacts[_index].setNickname(nickname);
