@@ -16,8 +16,11 @@
 
 class PhoneBook {
     private:
-        Contact _contacts[8];
-        int     _index;
+        Contact     _contacts[8];
+        int         _index;
+        int         _size;
+        std::string _truncate(std::string str);
+        std::string _readInput(std::string prompt);
     public:
         PhoneBook();
         ~PhoneBook();
