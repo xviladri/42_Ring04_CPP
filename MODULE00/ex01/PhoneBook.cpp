@@ -70,6 +70,10 @@ std::string PhoneBook::_truncate(std::string str) {
 }
 
 void PhoneBook::searchContact() {
+    if (_size == 0) {
+        std::cout << "Phonebook is empty." << std::endl;
+        return;
+    }
     std::cout << "|" << std::setw(10) << "index" << "|";
     std::cout << std::setw(10) << "first name" << "|";
     std::cout << std::setw(10) << "last name" << "|";
