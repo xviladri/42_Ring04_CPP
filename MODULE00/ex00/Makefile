@@ -6,7 +6,7 @@
 #    By: xviladri <xviladri@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/05 19:15:58 by xviladri          #+#    #+#              #
-#    Updated: 2026/01/05 19:16:09 by xviladri         ###   ########.fr        #
+#    Updated: 2026/01/17 12:40:44 by xviladri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = megaphone
@@ -19,6 +19,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJ)
+
+%.o: %.cpp Makefile
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

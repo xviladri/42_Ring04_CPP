@@ -6,7 +6,7 @@
 /*   By: xviladri <xviladri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 19:21:38 by xviladri          #+#    #+#             */
-/*   Updated: 2026/01/05 19:21:51 by xviladri         ###   ########.fr       */
+/*   Updated: 2026/01/17 18:38:08 by xviladri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "PhoneBook.hpp"
@@ -93,7 +93,6 @@ void PhoneBook::searchContact() {
         std::cout << "Enter index: ";
         if (!std::getline(std::cin, input))
             break;
-        
         if (input.length() == 1 && isdigit(input[0])) {
             index = input[0] - '0';
             if (index >= 1 && index <= 8) {
@@ -101,7 +100,7 @@ void PhoneBook::searchContact() {
                     std::cout << "No contact registered at index " << index << "." << std::endl;
                     continue;
                 }
-                index--; // Convert to 0-based index
+                index--;
                 std::cout << "First name: " << _contacts[index].getFirstName() << std::endl;
                 std::cout << "Last name: " << _contacts[index].getLastName() << std::endl;
                 std::cout << "Nickname: " << _contacts[index].getNickname() << std::endl;
