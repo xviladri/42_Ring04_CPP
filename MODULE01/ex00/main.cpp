@@ -1,11 +1,12 @@
 #include "Zombie.hpp"
 
-int main() {
+int main(void)
+{
     Zombie* heapZombie = newZombie("HeapZombie");
     heapZombie->announce();
     
-    randomChump("StackZombie");
+    randomChump("StackZombie");//this zombie dies inside the function.
     
-    delete heapZombie;
+    delete heapZombie;//this zombie only dies when we delete it.
     return (0);
 }
