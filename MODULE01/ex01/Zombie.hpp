@@ -9,7 +9,7 @@ private:
     std::string _name;
 
 public:
-    Zombie();
+    Zombie();//empty constructor
     Zombie(std::string name);
     ~Zombie();
 
