@@ -4,10 +4,11 @@
 # include <string>
 # include <iostream>
 
-class Zombie {
+class Zombie 
+{
 private:
     std::string _name;
-
+ 
 public:
     Zombie();//empty constructor
     Zombie(std::string name);
