@@ -1,10 +1,11 @@
 #ifndef HARL_HPP
 # define HARL_HPP
 
-# include <string>
-# include <iostream>
+#include <string>
+#include <iostream>
 
-class Harl {
+class Harl 
+{
 private:
     void debug(void);
     void info(void);
