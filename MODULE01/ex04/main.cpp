@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <cstdlib>//for exit
+#include <cstdlib>
 
 void replace(std::string filename, std::string s1, std::string s2) 
 {
@@ -13,7 +13,7 @@ void replace(std::string filename, std::string s1, std::string s2)
         std::exit(1);
     }
 
-    std::string content;// Read file char by char to preserve exact formatting
+    std::string content;
     char c;
     while (ifs.get(c)) 
     {
@@ -23,8 +23,7 @@ void replace(std::string filename, std::string s1, std::string s2)
 
     if (s1.empty()) 
     {
-        // If s1 is empty, we do nothing as we can't replace "nothing"
-    } 
+    }
     else 
     {
         size_t pos = 0;
