@@ -1,10 +1,11 @@
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
-# include <iostream>
-# include <cmath>
+#include <iostream>
+#include <cmath>
 
-class Fixed {
+class Fixed 
+{
 private:
     int                 _fixedPointValue;
     static const int    _fractionalBits = 8;
@@ -38,10 +39,10 @@ public:
     Fixed   operator/(const Fixed& other) const;
 
     // Increment/Decrement operators
-    Fixed&  operator++();       // Pre-increment
-    Fixed   operator++(int);    // Post-increment
-    Fixed&  operator--();       // Pre-decrement
-    Fixed   operator--(int);    // Post-decrement
+    Fixed&  operator++();// Pre-increment
+    Fixed   operator++(int);// Post-increment
+    Fixed&  operator--();// Pre-decrement
+    Fixed   operator--(int);// Post-decrement
 
     // Static min/max functions
     static Fixed& min(Fixed& a, Fixed& b);

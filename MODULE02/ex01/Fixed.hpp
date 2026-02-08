@@ -1,10 +1,11 @@
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
-# include <iostream>
-# include <cmath>
+#include <iostream>
+#include <cmath>
 
-class Fixed {
+class Fixed 
+{
 private:
     int                 _fixedPointValue;
     static const int    _fractionalBits = 8;
