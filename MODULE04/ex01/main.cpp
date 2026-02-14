@@ -4,33 +4,53 @@
 
 int main()
 {
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-
-    delete j;//should not create a leak
-    delete i;
-
-    std::cout << "---------------------------------" << std::endl;
+    std::cout << "----------- 1. CREATION ARRAY OF ANIMALS -----------" << std::endl;
 
     Animal* animals[4];
+	int i = 0;
+	while (i < 4)
+	{
+		if (i < 2)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+		i++;
+	}
+    std::cout << "\n----------- 2. ANIMAL SOUND TESTING -----------" << std::endl;
+	i = 0;
+	while (i < 4)
+	{
+        animals[i]->makeSound();
+		i++;
+	}
+	std::cout << "\n---------- 3. DELEATING ANIMALS (Check Destructors) -------" << std::endl;
+	i = 0;
+	while (i < 4)
+	{
+		delete animals[i];
+		i++;
+	}
+    std::cout << "\n -------- 4. DEEP COPY TESTING ---------------------------" << std::endl;
+	Dog* OriginalDog = new Dog();
+	OriginalDog->setBrainIdea(0, "I want food!");
+	Dog* CopyDog = new Dog(*OriginalDog);
 
-    for (int k = 0; k < 2; k++)
-        animals[k] = new Dog();
-    for (int k = 2; k < 4; k++)
-        animals[k] = new Cat();
-
-    for (int k = 0; k < 4; k++)
-        animals[k]->makeSound();
-
-    for (int k = 0; k < 4; k++)
-        delete animals[k];
-
-    std::cout << "---------------------------------" << std::endl;
-    
-    Dog basic;// Deep copy test
+	std::cout << " [Before] Original: " << OriginalDog->getBrainIdea(0) << std::endl;
+	std::cout << " [Before] Copy: " << CopyDog->getBrainIdea(0) << std::endl;
+	
+	std::cout << "\n----- Modifying the brain of the copy -------" << std::endl;
+	CopyDog->setBrainIdea(0, "I want to sleep!");
+	
+	std::cout << " [After] Original: " << OriginalDog->getBrainIdea(0) << std::endl;
+	std::cout << " [After] Copy: " << CopyDog->getBrainIdea(0) << std::endl;
+	
+	std::cout << "\n----- Deleting copy --------------------------" << std::endl;
+	delete CopyDog; 
+	std::cout << "\n----- Deleting original ----------------------" << std::endl;
+	delete OriginalDog;
+    /*Dog basic;
     {
         Dog tmp = basic;
-    } // tmp is destroyed, basic should still work if deep copy
-
-    return 0;
+    }*/
+    return (0);
 }

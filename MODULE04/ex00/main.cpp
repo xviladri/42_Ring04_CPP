@@ -7,20 +7,20 @@
 int main()
 {
     const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+    const Animal* Vera = new Dog();
+    const Animal* Tay = new Cat();
 
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound();
-    j->makeSound();
+    std::cout << Vera->getType() << " " << std::endl;
+    std::cout << Tay->getType() << " " << std::endl;
+    Vera->makeSound();
+    Tay->makeSound();
     meta->makeSound();
 
     delete meta;
-    delete j;
-    delete i;
+    delete Vera;
+    delete Tay;
 
-    std::cout << "---------------------------------------" << std::endl;
+    std::cout << "----------------- WRONG CLASS ----------------" << std::endl;
 
     const WrongAnimal* wrongMeta = new WrongAnimal();
     const WrongAnimal* wrongCat = new WrongCat();
@@ -32,5 +32,5 @@ int main()
     delete wrongMeta;
     delete wrongCat;
 
-    return 0;
+    return (0);
 }

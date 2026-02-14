@@ -2,15 +2,15 @@
 
 Cat::Cat() 
 {
-    this->type = "Cat";
-    this->_brain = new Brain();
-    std::cout << "Cat default constructor called" << std::endl;
+	type = "Cat";
+	_brain = new Brain();
+	std::cout << "Cat default constructor called" << std::endl;
 }
 
 Cat::Cat(const Cat &other) : Animal(other) 
 {
-    this->_brain = new Brain(*other._brain);
-    std::cout << "Cat copy constructor called" << std::endl;
+        this->_brain = new Brain(*other._brain);
+        std::cout << "Cat copy constructor called" << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &other) 
@@ -18,25 +18,42 @@ Cat &Cat::operator=(const Cat &other)
     std::cout << "Cat copy assignment operator called" << std::endl;
     if (this != &other) 
     {
-        Animal::operator=(other);
-        delete this->_brain;
-        this->_brain = new Brain(*other._brain);
+        this->type = other.type;//esto es lo mismo que hacer: Animmal::operator=(other);
+        if (this->_brain != NULL)
+            delete this->_brain;
+        this->_brain = new Brain(*other._brain);//creamos uno nuevo copiando del otro
     }
-    return *this;
+    return (*this);
 }
 
 Cat::~Cat() 
 {
-    delete this->_brain;
+    delete _brain;
     std::cout << "Cat destructor called" << std::endl;
 }
 
 void Cat::makeSound() const 
 {
-    std::cout << "Meow!" << std::endl;
+    std::cout << "Cat makes sound: Miau miau!" << std::endl;
 }
 
-Brain* Cat::getBrain() const 
+void Cat::setBrainIdea(int i, const std::string& idea)
 {
-    return this->_brain;
+    if (i >= 0 && i < 100 && idea != "")
+        this->_brain->setIdea(i, idea);
+    else if (idea == "")
+        std::cout << "Please write a correct idea" << std::endl;
+    else
+        std::cout << "Please write a valid index" << std::endl;
+}
+
+std::string Cat::getBrainIdea(int i) const
+{
+    if (i >= 0 && i < 100)
+        return (this->_brain->getIdea(i));
+    else
+    {
+        std::cout << "Please write a valid index" << std::endl;
+        return ("");
+    }
 }
